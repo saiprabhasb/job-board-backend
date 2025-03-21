@@ -40,6 +40,33 @@ router.get('/', async (req, res) => {
       res.status(500).json({ message: 'Server error' });
     }
   });
+
+  // POST /api/jobs/:id/apply - Apply for a job (Protected)
+router.post('/:id/apply', authMiddleware, async (req, res) => {
+    try {
+      const job = await Job.findById(req.params.id);
+  
+      if (!job) {
+        return res.status(404).json({ message: 'Job not found' });
+      }
+  
+      // Check if the user already applied
+      const alreadyApplied = job.applications.some(app => app.applicant.toString() === req.user.id);
+      if (alreadyApplied) {
+        return res.status(400).json({ message: 'You have already applied for this job' });
+      }
+  
+      // Add applicant to applications array
+      job.applications.push({ applicant: req.user.id });
+      await job.save();
+  
+      res.status(200).json({ message: 'Application submitted successfully' });
+    } catch (err) {
+      console.error(err);
+      res.status(500).json({ message: 'Server error' });
+    }
+  });
+  
   
 
 module.exports = router;
