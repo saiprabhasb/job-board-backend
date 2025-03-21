@@ -66,6 +66,31 @@ router.post('/:id/apply', authMiddleware, async (req, res) => {
       res.status(500).json({ message: 'Server error' });
     }
   });
+  // GET /api/jobs/:id/applicants - Fetch all applicants for a job (Protected)
+router.get('/:id/applicants', authMiddleware, async (req, res) => {
+    try {
+      const job = await Job.findById(req.params.id).populate('applications.applicant', 'name email');
+  
+      if (!job) {
+        return res.status(404).json({ message: 'Job not found' });
+      }
+  
+      res.status(200).json({
+        jobTitle: job.title,
+        applicants: job.applications.map(app => ({
+          id: app.applicant._id,
+          name: app.applicant.name,
+          email: app.applicant.email,
+          appliedAt: app.appliedAt
+        }))
+      });
+  
+    } catch (err) {
+      console.error(err);
+      res.status(500).json({ message: 'Server error' });
+    }
+  });
+  
   
   
 
