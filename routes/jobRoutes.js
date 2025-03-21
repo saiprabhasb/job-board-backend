@@ -30,5 +30,16 @@ router.post('/', authMiddleware, async (req, res) => {
     res.status(500).json({ message: 'Server error' });
   }
 });
+// GET /api/jobs - Fetch all jobs
+router.get('/', async (req, res) => {
+    try {
+      const jobs = await Job.find().populate('postedBy', 'name email'); // Populates the user who posted the job
+      res.status(200).json(jobs);
+    } catch (err) {
+      console.error(err);
+      res.status(500).json({ message: 'Server error' });
+    }
+  });
+  
 
 module.exports = router;
