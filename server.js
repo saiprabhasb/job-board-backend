@@ -7,6 +7,9 @@ const connectDB = require("./config/db");
 const authRoutes = require("./routes/authRoutes");
 const jobRoutes = require("./routes/jobRoutes");
 const rateLimit = require("express-rate-limit");
+const recommendations = require("./routes/recommendations");
+
+
 
 dotenv.config();
 
@@ -36,6 +39,7 @@ app.use(cors());
 app.use(express.json());
 app.use("/api", authRoutes);
 app.use("/api/jobs", jobRoutes);
+app.use("/api/recommendations", recommendations);
 
 // REST API Rate Limiting (Job Posting)
 const jobPostLimiter = rateLimit({
