@@ -1,87 +1,91 @@
 # 💼 Job Board Backend
 
 Backend API for a job board platform built with **Node.js**, **Express.js**, **MongoDB**, and **Socket.IO**.  
-It provides REST APIs and real-time job updates using WebSockets.
+It provides RESTful APIs to handle job listings, applications, authentication, and real-time updates.
 
 ---
 
 ## 🚀 Features
 
-- JWT-based user authentication
-- CRUD operations for job listings
-- Apply to jobs
-- Real-time updates using Socket.IO
-- Rate limiting for API protection
-- AI-powered job recommendations (OpenAI API)
+- **JWT Authentication** for secure user access
+- **Job Listings** with full CRUD operations
+- **Job Applications** via API
+- **Real-time Job Notifications** using WebSockets (Socket.IO)
+- **Rate Limiting** for API security
+- **AI-Powered Job Recommendations** using OpenAI (logic implemented)
 
 ---
 
 ## 📌 What’s Working?
 
-- User auth (register/login)  
-- Create & view jobs  
-- Apply for jobs  
-- Real-time job notifications  
-- **AI job recommendations (implemented, but inactive due to OpenAI API credit limits)**
+- User registration and login functionality
+- APIs for creating, viewing, and applying to jobs
+- Real-time job broadcast to all connected clients
+- AI recommendation endpoint (currently inactive due to API credit limits)
 
 ---
 
 ## 🚧 What’s Missing?
 
-- Admin roles & panel  
-- Resume uploads  
-- Tests  
-- Deployment  
+- Admin panel and role-based access
+- Resume file upload capability
+- Automated tests (unit/integration)
+- Full production-level deployment automation
 
 ---
 
 ## ⏳ If I Had More Time...
 
-- Add role-based access control  
-- Enable file uploads for resumes  
-- Write unit/integration tests  
-- Deploy to Render or Fly.io  
-- Reactivate the AI recommendation system with valid OpenAI credits  
+- Implement user roles (Admin, Company, Job Seeker)
+- Add resume upload support for job seekers
+- Write tests using Jest or a similar framework
+- Fully optimize and deploy to Render with CI/CD
+- Activate and test AI recommendations with OpenAI credits
 
 ---
 
 ## 🧪 Notes
 
-- The AI job recommendation feature is fully integrated using OpenAI's API.  
-  However, due to lack of API credits, it currently fails to fetch results.  
-  The endpoint and logic are in place and will work once a valid API key with credits is available.
+The AI recommendation system is fully built and integrated via OpenAI API.  
+However, due to lack of API credits, it currently doesn't return live suggestions.  
+Once credits are added, the endpoint will be fully functional.
+
+---
+
+## 🧑‍💻 Developer Focus
+
+This project is built specifically for the **Backend Developer Track** of the assignment.
+
+### ✅ Backend Tasks Completed:
+- Authentication using JWT
+- RESTful API for jobs and applications
+- WebSocket integration for real-time updates
+- Rate limiting for API protection
+- AI recommendation logic implemented
+
+### 🚫 Not Implemented (Fullstack Tasks):
+- Role-based access and dashboards
+- Resume file uploads
+- Frontend integration (UI)
+- Prisma or Sequelize-based DB optimization
 
 ---
 
 ## 📂 Repository
 
-[GitHub Repository](https://github.com/saiprabhasb/job-board-backend)
+🔗 [GitHub Repository](https://github.com/saiprabhasb/job-board-backend)
 
 ---
+
+## 🌐 Live Deployment
+
+The backend is deployed and accessible here:  
+🔗 [https://job-board-backend-m9o4.onrender.com](https://job-board-backend-m9o4.onrender.com)
+
 ---
-
-## 🧑‍💻 Developer Focus
-
-This project focuses purely on the **Backend Developer** track.
-
-### ✅ Completed (Backend Tasks):
-- JWT-based authentication
-- REST API for job posting, listing, and applying
-- WebSockets for real-time job updates
-- API rate limiting
-- AI job recommendations (implemented, not active due to OpenAI credit limits)
-
-### 🚫 Not Implemented (Fullstack Tasks):
-- Role-based access (Admin, Company, Seeker)
-- Resume file uploads
-- Company dashboard UI
-- DB optimization (Prisma/Sequelize)
-
 
 ## 📬 Contact
 
-- Email: [bandasaiprabhas@gmail.com](mailto:bandasaiprabhas@gmail.com)
+📧 Email: [bandasaiprabhas@gmail.com](mailto:bandasaiprabhas@gmail.com)
 
 ---
-
-*Note: This project is still in progress and not deployed yet.*
