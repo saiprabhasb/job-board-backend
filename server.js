@@ -41,6 +41,11 @@ app.use("/api", authRoutes);
 app.use("/api/jobs", jobRoutes);
 app.use("/api/recommendations", recommendations);
 
+// Add base route
+app.get("/", (req, res) => {
+    res.send(" Job Board Backend is Live on Render!");
+  });
+
 // REST API Rate Limiting (Job Posting)
 const jobPostLimiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
